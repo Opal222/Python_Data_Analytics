@@ -83,7 +83,7 @@ plt.show()
 ### Results
 ![Trending Top Skills for Data Analysts in the US](3_Project/Images/Trending_skills_for_data_analysts.png)
 
-*Bar Graph visualizing the trending top skills for Data Analysts in the US in 2023.
+*Bar Graph visualizing the trending top skills for Data Analysts in the US in 2023.*
 
 ### Insights
 - SQL is the most consistently requested skill, staying around 56–63% for most of the year and ending at 53% in December.
@@ -94,3 +94,43 @@ plt.show()
 - The biggest month-to-month changes occur in Excel, particularly the rise from 41% in June to 45% in July followed by a decline to 34% in October.
 - Overall pattern: SQL is the dominant skill, while Python, Excel, Tableau, and Power BI form a secondary group of commonly requested data-analyst skills.
 
+# The Analysis
+
+## 3. How well do job and skills pay for data analysts?
+
+### Salary Analysis for Data Nerds
+
+#### Visualize data
+
+```python
+# Create horizontal box plot
+sns.boxplot(
+    data=df_US_top6,
+    x='salary_year_avg',
+    y='job_title_short',
+    order = job_order
+)
+sns.set_theme(style = 'ticks')
+
+#set x-axis limit
+plt.xlim(0, 600000)
+
+# Format x-axis as $100K
+tick_x = plt.FuncFormatter(lambda x, pos: f'${x/1000:.0f}K')
+plt.gca().xaxis.set_major_formatter(tick_x)
+    
+plt.title('Salary Distribution for Data Roles in the US')
+plt.xlabel('Yearly Salary (USD)')
+plt.ylabel('Job titles')
+plt.show()
+
+```
+
+#### Results
+![Salary Distributions of Data Jobs in the US](3_Project/Images/Salary_analysis.png) *Box Plot Visualizing the salary distributions for the top 6 data job titles.*
+
+#### Insights
+- Senior roles generally command higher salaries, with Senior Data Scientist and Senior Data Engineer having medians around $150K.
+- Data Analyst has the lowest median (~$95–100K), while Senior Data Analyst is slightly higher at around $110K.
+- Data Scientist and Data Engineer show wider salary ranges, with many high-paying outliers above $200K.
+- Overall: Salary tends to increase with seniority, but there is substantial overlap and variation within each role.

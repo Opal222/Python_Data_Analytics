@@ -1,3 +1,66 @@
+# Introduction
+
+## The Overview
+
+### My Data Analyst Journey 
+
+Welcome to my data analyst journey!
+
+I’m an **immunologist and researcher** who currently spends most of my time working in the lab. After years of doing experimental research, I’ve become increasingly interested in how I can use **data analysis and computational skills to get more out of my experimental data** and make my research more efficient and informative.
+
+My long-term goal is to combine my **wet-lab experience with data and computational skills**. Maybe this will eventually lead me towards becoming a **computational immunologist** — I’m still figuring that part out!
+
+#### How I started
+
+I started learning Python through **Luke Barousse’s Python course**, which gave me a practical introduction to Python and data analysis.
+
+As part of the course, I worked with a dataset containing **job titles, salaries, locations, and required skills** from data-related jobs. Rather than simply following the exercises, I decided to use the project as an opportunity to explore the **real-world data analytics job market** and understand what skills employers are actually looking for.
+
+Along the way, I’ve been practising:
+
+- 🐍 Python
+- 🐼 pandas
+- 🔢 NumPy
+- 📊 Matplotlib
+- 🎨 Seaborn
+- 🧹 Data cleaning and manipulation
+- 📈 Data visualisation
+- 🔍 Exploratory data analysis
+- 💼 Exploring salary, job trends, and in-demand skills
+
+#### What's next?
+
+I’m still at the beginning of this journey, so I’m learning one step at a time.
+
+My goal is to gradually move from:
+
+**Python basics → Data analysis → Statistics → Machine learning → Bioinformatics → Computational immunology**
+
+I’m excited to see where this journey takes me!
+
+# Outline
+
+## Answers to these questions
+
+1. What are the most demanded skills for the top 3 most popular data roles?
+2. How are in-demand skills trending for Data Analysts?
+3. How well do job and skills pay for Data Analysts?
+4. What is the most optimal skill to learn for Data Analysts? 
+
+# Tools I used & Things I learned
+This project is part of my journey learning Python and data analysis using the Data Jobs dataset from **Luke Barousse's Python course**. The dataset contains information about data-related roles, including job titles, salaries, locations, and required skills.
+
+Through the project, I learned how different Python tools work together to explore and understand real-world data.
+
+- Python — Learned Python fundamentals, including variables, loops, functions, indexing, and working with data.
+- pandas — Learned how to load, clean, filter, group, and analyse the Data Jobs dataset.
+- NumPy — Learned the basics of numerical computing and working with numerical data.
+- Matplotlib — Learned how to create and customise charts, including labels, axes, annotations, and formatting.
+- Seaborn — Learned how to create statistical visualisations and use colour and grouping to identify patterns in the data.
+- Jupyter Notebook — Used Jupyter Notebook to combine code, analysis, visualisations, and notes while exploring the dataset.
+- GitHub — Learned how to organise my projects, document my learning, and share my work.
+
+
 # The Analysis
 
 ## 1. What are the most demanded skills for the top 3 most popular data roles?
@@ -61,7 +124,7 @@ plt.show()
 
 Overall: SQL + Python appear to be the strongest foundational combination, while cloud, R, Excel, and visualization tools add complementary value.
 
-## 2. How are in demand skills trending for Data Analysts?
+## 2. How are in-demand skills trending for Data Analysts?
 
 ### Visualise data
 
@@ -184,3 +247,45 @@ plt.show()
 - For a Data Analyst career, Python + SQL provide strong foundational coverage, while specialised tools such as cloud, Git, or AI/ML technologies could potentially add higher-value skills.
 
 
+# The Analysis
+
+## 4. What is the most optimal skill to learn for Data Analysts?
+
+#### Visualize Data
+
+```python
+from adjustText import adjust_text
+
+df_DA_skills_high_demand.plot(kind = 'scatter', x = 'skill_percent', y = 'median_salary')
+
+#Prepare text for adjust_text
+texts = []
+for i, txt in enumerate(df_DA_skills_high_demand.index):
+    texts.append(plt.text(df_DA_skills_high_demand['skill_percent'].iloc[i], df_DA_skills_high_demand['median_salary'].iloc[i], txt))
+
+# Adjust text to avoid overlap
+adjust_text(texts, arrowprops=dict(arrowstyle = '->', color = 'grey'))
+
+```
+#### Results
+![Most Optimal Skills for Data Analysts in the US](3_Project/Images/Optimal_skills.png)
+
+*A scatter plot visualizing the most optimal skills (high paying & high demand) for Data Analyst in the US.*
+
+#### Insight
+- SQL has the highest demand, appearing in nearly 60% of Data Analyst job postings, while Python has the highest median salary (~$98K) among the skills shown.
+- Specialised skills can command higher salaries despite lower demand — Oracle, R, and SQL Server have relatively low job-posting percentages but median salaries above ~$92K.
+- Excel and Power BI are relatively common but associated with lower median salaries, suggesting that foundational analyst tools are widely requested, while some specialised technical skills may be linked with higher-paying roles.
+
+
+# Insights
+
+- SQL and Excel are among the most in-demand skills for Data Analyst roles, while Python is also highly valuable and associated with relatively high salaries.
+- Specialised technical skills can be linked to higher salaries, even when they appear in fewer job postings.
+- Salary generally increases with seniority, although there is considerable variation between roles.
+
+
+# Conclusion
+This project helped me move beyond learning Python syntax and start using Python to **explore and communicate insights from real-world data**. I also gained a better understanding of the skills employers are looking for in data-related roles.
+
+Most importantly, I now have a foundation in Python and data analysis that I can continue developing and eventually apply to biological and immunology-related datasets.
